@@ -1,3 +1,6 @@
+# Set Execution Policy (bypass restrictions temporarily)
+Set-ExecutionPolicy Bypass -Scope Process -Force
+
 # Allow incoming ping requests (ICMP)
 New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4 -Direction Inbound -Action Allow
 
@@ -24,3 +27,7 @@ Get-Service sshd
 
 # Ping a specific IP to test connectivity
 ping 10.5.49.161
+
+# Restore execution policy (optional, for security)
+Set-ExecutionPolicy Restricted -Scope Process -Force
+
